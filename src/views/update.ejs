@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Form</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background: rgb(173, 88, 231);
+        background: linear-gradient(90deg, rgba(173, 88, 231, 1) 0%, rgba(250, 78, 78, 1) 50%, rgba(254, 191, 103, 1) 100%);
+    }
+
+    form {
+        background-color: transparent;
+        display: block;
+        padding: 1rem;
+        max-width: 350px;
+        height: 40vh;
+        border-radius: 0.5rem;
+        box-shadow: 30px 20px 80px 20px gray;
+        margin-top: 10vw;
+    }
+
+    .input-container {
+        position: relative;
+    }
+
+    .input-container input
+   {
+        outline: none;
+        border: 1px solid #e5e7eb;
+        margin: 8px 0;
+    }
+
+    .input-container input {
+        background-color: #fff;
+        padding: .5rem;
+        padding-right: 2rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        width: 300px;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    /* From Uiverse.io by nikk7007 */
+    button {
+        padding: 0.5em 1em;
+        border: 1px solid rgb(88, 12, 12);
+        position: relative;
+        overflow: hidden;
+        background-color: transparent;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 16px;
+        transition: .3s;
+        z-index: 1;
+        font-family: inherit;
+        color: white;
+        margin-top: 1vw;
+        border-radius: 10px;
+    }
+
+    button::before {
+        content: '';
+        width: 0;
+        height: 300%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background: white;
+        transition: .5s ease;
+        display: block;
+        z-index: -1;
+    }
+
+    button:hover::before {
+        width: 105%;
+    }
+
+    button:hover {
+        color: #111;
+    }
+
+    h1 {
+        color: white;
+        ;
+        font-size: 2vw;
+        text-shadow: 2px 2px gray;
+    }
+</style>
+
+<body>
+   
+        <form action="/update/<%= users._id %>" method="post">
+
+
+
+            <h1 class="form-title">Asign author to Book</h1>
+
+            <div class="input-container">
+                <input type="text" placeholder="Enter email" value="<%= users.title %>" readonly>
+                <span>
+                </span>
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="Enter Authorname">
+            </div>
+            <button class="animated-button">
+                <span>Submit</span>
+                <span></span>
+            </button>
+
+
+
+        </form>
+ 
+</body>
+
+</html>
