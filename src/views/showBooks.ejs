@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,9 +70,10 @@
         margin-top: 2vw;
     }
 </style>
+
 <body>
     <div class="container">
-    <h1>My Books Data</h1>
+        <h1>My Books Data</h1>
         <hr>
         <button class="btn" style="margin:2vw"><a href="/">Add+</a></button>
         <button class="btn" style="margin:2vw"><a href="/showAuthor">Author</a></button>
@@ -87,12 +89,28 @@
                 </tr>
             </thead>
             <tbody>
-                <% users.forEach(user => { %>
+                <% users.forEach(user=> { %>
                     <tr>
-                        <th scope="row"><%= user._id %></th>
-                        <td class="name"><%= user.title  %></td>
-                        <td class="name"><%= user.user  %></td>
-                      
+                        <th scope="row">
+                            <%= user._id %>
+                        </th>
+                        <td class="name">
+                            <%= user.title %>
+                        </td>
+                        <!-- <td class="name"><%= user.user  %></td> -->
+                        <td class="name">
+
+                            <% if (user.user) { %>
+                                <div>
+                                    <%= user.user.name %>
+                                </div>
+
+                                <% } else{ %>
+                                    <div>No Author</div>
+
+                                <% } %>
+                        </td>
+
                         <td>
                             <span>
                                 <button type="submit" class="btn"><a href="/edit/<%= user._id %>">Edit</a></button>
@@ -100,10 +118,11 @@
                             </span>
                         </td>
                     </tr>
-                <% }); %>
+                    <% }); %>
             </tbody>
         </table>
 
     </div>
 </body>
+
 </html>
