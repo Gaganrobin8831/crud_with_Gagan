@@ -88,16 +88,13 @@ async function handleDelete(req, res) {
         console.log('Book to delete:', Book);
         // Find the author and remove the book reference from their `books` array
         if (Book.user) {
-            // // Log the author's current state before the update
-            // const authorBeforeUpdate = await Author.findById(Book.user);
-            // console.log('Author before update:', authorBeforeUpdate);
-            // console.log('Book ID to pull:', bookId);
-            // // Perform the update operation
+      
             const updateResult = await Author.findByIdAndUpdate(
                 Book.user,
                 { $pull: { books: bookId } },  // Remove the bookId from the author's `books` array
                 { new: true } // Option to return the updated document
             );
+            
             // Log the result of the update operation
             console.log('Update result:', updateResult);
             // Log the author's state after the update
