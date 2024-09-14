@@ -71,10 +71,10 @@
 </style>
 <body>
     <div class="container">
-    <h1>My Books Data</h1>
+    <h1>My Author Data</h1>
         <hr>
         <button class="btn" style="margin:2vw"><a href="/">Add+</a></button>
-        <button class="btn" style="margin:2vw"><a href="/showAuthor">Author</a></button>
+        <button class="btn" style="margin:2vw"><a href="/show">Books</a></button>
 
         <table class="table">
             <thead>
@@ -82,7 +82,7 @@
                     <th scope="col">Id</th>
                     <th scope="col">Book Name</th>
                     <th scope="col">Author</th>
-                    <!-- <th scope="col">Password</th> -->
+                    <th scope="col">Books</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -90,13 +90,21 @@
                 <% users.forEach(user => { %>
                     <tr>
                         <th scope="row"><%= user._id %></th>
-                        <td class="name"><%= user.title  %></td>
-                        <td class="name"><%= user.user  %></td>
+                        <td class="name"><%= user.name  %></td>
+                        <td class="name"><%= user.email  %></td>
+                        
+                        <td class="name">
+                           
+                            <% user.books.forEach(book => { %>
+                                <div><%= book.title %></div>
+                            <% }) %>
+
+                        </td>
                       
                         <td>
                             <span>
-                                <button type="submit" class="btn"><a href="/edit/<%= user._id %>">Edit</a></button>
-                                <button type="submit" class="btn"><a href="/del/<%= user._id %>">Delete</a></button>
+                                <button type="submit" class="btn"><a href="/editAuth/<%= user._id %>">Edit</a></button>
+                                <button type="submit" class="btn"><a href="/delAuth/<%= user._id %>">Delete</a></button>
                             </span>
                         </td>
                     </tr>

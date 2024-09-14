@@ -1,4 +1,4 @@
-const User = require('../models/user.model');
+const Author = require('../models/user.model');
 const book = require('../models/books.model');
 
 async function HanleGet(req,res) {
