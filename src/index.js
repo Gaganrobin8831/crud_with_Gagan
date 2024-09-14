@@ -37,8 +37,14 @@ app.use('/',router)
 
 
 connectDB()
+.then(()=>{
 //setup the list port for server running
 app.listen(port,()=>{
     console.log(`The server run on http://localhost:${port}/`);
+    
+})
+})
+.catch((err)=>{
+    console.log("Monngo Db EROR!! ",err);
     
 })
