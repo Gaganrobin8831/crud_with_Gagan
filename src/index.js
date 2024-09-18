@@ -8,11 +8,17 @@ const express = require('express');
 const app = express()
 //router import
 const router = require('./routes/app.routes');
+
 //Set port 
 const port = process.env.PORT
-const connectDB = require('./DB/database.js')
+const connectDB = require('./DB/database.js');
 
 
+const { swaggerUi, swaggerSpec } = require('./swagger'); // Import Swagger modules
+
+// Serve Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec)); // Swagger endpoint
+console.log(JSON.stringify(swaggerSpec, null, 2)); // This will show the generated spec
 
 //setup the middelware
 app.set("view engine","ejs");
@@ -33,7 +39,6 @@ app.use(express.json())
 
 //setup the router 
 app.use('/',router)
-
 
 
 connectDB()

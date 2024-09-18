@@ -7,12 +7,42 @@ const { getEditAuthor,updateAuthor } = require('../controller/updateAuth.control
 const { deleteAuthor } = require('../controller/delAuth.controller')
 const router = express.Router()
 
-router.get('/',(req,res)=>{
-    res.render('user')
-})
 
-// show the table of books
-router.get('/show',HanleGet)
+
+/**
+ * @swagger
+ * /:
+ *  get:
+ *      summary: Returns a form for entering data
+ *      description: Returns a form for entering data
+ *      responses:
+ *            200:
+ *                description: A successful response
+ */
+router.get('/', (req, res) => {
+    res.render('user');
+});
+
+/**
+ * @swagger
+ * /show:
+ *   get:
+ *     summary: Retrieve a list of books
+ *     responses:
+ *       200:
+ *         description: A list of books retrieved successfully
+ */
+router.get('/show', async (req, res) => {
+    // Example response
+    res.json({ message: "List of books" });
+});
+
+
+
+
+
+// // show the table of books
+// router.get('/show',HanleGet)
 
 // show the table of Author
 router.get('/showAuthor',HanleGetAuth)
