@@ -17,7 +17,7 @@ const swaggerOptions = {
             }
         ]
     },
-    apis:["./routes/app.routes.js"]
+    apis:["./routes/*.js"]
     // Path to your route files
 }
 
