@@ -5,33 +5,16 @@ const { HanleUpdateToGet,HanleUpdate,handleDelete } = require('../controller/edi
 const { HanleGetAuth } = require('../controller/auhor.controller')
 const { getEditAuthor,updateAuthor } = require('../controller/updateAuth.controller')
 const { deleteAuthor } = require('../controller/delAuth.controller')
+const { asyncHandler } = require('../utilits/async.utitilty')
 const router = express.Router()
 
 
 
-/**
- * @swagger
- * /:
- *  get:
- *      summary: Returns a form for entering data
- *      description: Returns a form for entering data
- *      responses:
- *            200:
- *                description: A successful response
- */
-router.get('/', (req, res) => {
-    res.render('user');
-});
 
-/**
- * @swagger
- * /show:
- *   get:
- *     summary: Retrieve a list of books
- *     responses:
- *       200:
- *         description: A list of books retrieved successfully
- */
+router.get('/', asyncHandler((req, res) => {
+    res.render('user');
+}));
+
 router.get('/show', async (req, res) => {
     // Example response
     res.json({ message: "List of books" });
@@ -40,11 +23,6 @@ router.get('/show', async (req, res) => {
 
 
 
-
-// // show the table of books
-// router.get('/show',HanleGet)
-
-// show the table of Author
 router.get('/showAuthor',HanleGetAuth)
 
 router.get('/editAuth/:id',getEditAuthor)

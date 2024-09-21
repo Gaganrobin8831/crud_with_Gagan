@@ -14,12 +14,6 @@ const port = process.env.PORT
 const connectDB = require('./DB/database.js');
 
 
-const { swaggerUi, swaggerSpec } = require('./swagger'); // Import Swagger modules
-
-// Serve Swagger documentation
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec)); // Swagger endpoint
-console.log(JSON.stringify(swaggerSpec, null, 2)); // This will show the generated spec
-
 //setup the middelware
 app.set("view engine","ejs");
 app.set("views",path.resolve("./src/views"))
